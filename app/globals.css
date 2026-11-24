@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #f6f2ea;
+  --surface: #fffdf8;
+  --surface-2: #efe9dd;
+  --ink: #1c1a26;
+  --ink-2: #3a3747;
+  --muted: #6c6676;
+  --line: #e2dacb;
+  --line-strong: #cfc4b0;
+  --gold: #9a6d22;
+  --gold-soft: #e9d9b5;
+  --gold-ink: #7a5414;
+  --indigo: #34336a;
+  --indigo-soft: #e3e2f2;
+  --sage: #4f6e5a;
+  --sage-soft: #dfe9e1;
+  --rose: #9b3b3b;
+  --rose-soft: #f4dfdc;
+  --focus: #9a6d22;
+  --shadow: 0 1px 2px rgb(28 26 38 / 0.04), 0 8px 24px -12px rgb(28 26 38 / 0.12);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f0e18;
+    --surface: #171622;
+    --surface-2: #1f1d2c;
+    --ink: #ece6da;
+    --ink-2: #cfc8bb;
+    --muted: #a19bab;
+    --line: #2a2838;
+    --line-strong: #3a3749;
+    --gold: #d6ad5e;
+    --gold-soft: #3a2f1c;
+    --gold-ink: #e7c47f;
+    --indigo: #a9a7ea;
+    --indigo-soft: #24233e;
+    --sage: #8fb59b;
+    --sage-soft: #1d2a22;
+    --rose: #e29a92;
+    --rose-soft: #3a2222;
+    --focus: #d6ad5e;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -12px rgb(0 0 0 / 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f0e18;
+  --surface: #171622;
+  --surface-2: #1f1d2c;
+  --ink: #ece6da;
+  --ink-2: #cfc8bb;
+  --muted: #a19bab;
+  --line: #2a2838;
+  --line-strong: #3a3749;
+  --gold: #d6ad5e;
+  --gold-soft: #3a2f1c;
+  --gold-ink: #e7c47f;
+  --indigo: #a9a7ea;
+  --indigo-soft: #24233e;
+  --sage: #8fb59b;
+  --sage-soft: #1d2a22;
+  --rose: #e29a92;
+  --rose-soft: #3a2222;
+  --focus: #d6ad5e;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -12px rgb(0 0 0 / 0.5);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
+  --color-indigo: var(--indigo);
+  --color-indigo-soft: var(--indigo-soft);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-figtree), "Figtree", system-ui, sans-serif;
+  --shadow-soft: var(--shadow);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  min-height: 100dvh;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Long-form reading: lessons and Sophia's replies */
+.prose-ms {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+.prose-ms > * + * {
+  margin-top: 1em;
+}
+.prose-ms h2,
+.prose-ms h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.2;
+  margin-top: 1.6em;
+}
+.prose-ms h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.prose-ms h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.prose-ms strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.prose-ms ul,
+.prose-ms ol {
+  padding-left: 1.25em;
+}
+.prose-ms ul {
+  list-style: disc;
+}
+.prose-ms ol {
+  list-style: decimal;
+}
+.prose-ms li + li {
+  margin-top: 0.35em;
+}
+.prose-ms li::marker {
+  color: var(--gold);
+}
+.prose-ms blockquote {
+  border-left: 2px solid var(--gold);
+  padding-left: 1em;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.prose-chat {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+.prose-chat > * + * {
+  margin-top: 0.7em;
+}
+.prose-chat ul {
+  list-style: disc;
+  padding-left: 1.2em;
+}
+.prose-chat ol {
+  list-style: decimal;
+  padding-left: 1.2em;
+}
+.prose-chat strong {
+  font-weight: 600;
+}
+
+/* Sophia's presence: slow breathing when idle */
+@keyframes ms-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+}
+@keyframes ms-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ms-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-breathe {
+  animation: ms-breathe 7s ease-in-out infinite;
+}
+.animate-slow-spin {
+  animation: ms-spin 120s linear infinite;
+}
+.animate-fade-up {
+  animation: ms-fade-up 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-slow-spin,
+  .animate-fade-up {
+    animation: none;
+  }
+}
+
+/* Typing indicator */
+@keyframes ms-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+.typing-dot {
+  animation: ms-dot 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
