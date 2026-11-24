@@ -43,7 +43,7 @@ export default async function ProjectsPage() {
                   <Badge tone={STATUS[p.status].tone}>{STATUS[p.status].label}</Badge>
                   <span className="text-xs text-muted">{studyArea(p.studyArea).name}</span>
                 </div>
-                <h2 className="font-display mt-2 text-2xl font-semibold leading-tight">{p.title}</h2>
+                <h2 className="font-display mt-2 text-2xl leading-tight">{p.title}</h2>
                 <p className="mt-1 text-sm text-muted">{p.summary}</p>
                 <p className="mt-auto flex items-center gap-1 pt-4 text-xs text-muted">
                   <Users className="size-3.5" /> {p.members} {p.members === 1 ? "member" : "members"} · led by {p.ownerName}

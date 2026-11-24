@@ -36,11 +36,11 @@ a date when verified.
 
 ## Product follow-ups
 
-- [ ] Show gathering times in the member's time zone on `/home` (the community pages
-      already do).
+- [x] Show gathering times in the member's time zone on `/home` (done 25 Nov 2026).
 - [ ] Course completion certificates and a "Wisdom in Action" record across courses.
 - [ ] Notifications for replies, project updates and gathering reminders.
-- [ ] Voice and video: a full spoken session with a real microphone and camera in
-      Chrome, Safari and Firefox (verified so far: Gemini accepts the locked setup;
-      Tavus rooms are created and ended, 24 Nov 2026).
+- [ ] Voice and video with a real microphone and camera in Chrome, Safari and Firefox.
+      Verified 25 Nov 2026: the full voice pipeline with a recorded clip as the mic, and
+      the silent-input warning. Tavus rooms are created and ended. Verify microphone hardware and
+      an actual Gemini reply after the browser audio changes.
 - [ ] Accessibility audit with a screen reader.

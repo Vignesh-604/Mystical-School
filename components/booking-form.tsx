@@ -31,7 +31,7 @@ export function BookingForm({ slug, rooms, depositPercent, policy }: { slug: str
       {state?.error ? <Notice tone="rose">{state.error}</Notice> : null}
 
       <fieldset>
-        <legend className="font-display text-2xl font-semibold">1. Choose a room</legend>
+        <legend className="font-display text-2xl">1. Choose a room</legend>
         <div className="mt-4 grid gap-3">
           {rooms.map((r) => {
             const full = r.remaining <= 0;
@@ -73,7 +73,7 @@ export function BookingForm({ slug, rooms, depositPercent, policy }: { slug: str
       </fieldset>
 
       <fieldset className="space-y-4">
-        <legend className="font-display text-2xl font-semibold">2. Guests and contact</legend>
+        <legend className="font-display text-2xl">2. Guests and contact</legend>
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Guests" htmlFor="guests">
             <Select id="guests" name="guests" value={Math.min(guests, maxGuests)} onChange={(e) => setGuests(Number(e.target.value))}>
@@ -107,7 +107,7 @@ export function BookingForm({ slug, rooms, depositPercent, policy }: { slug: str
       </fieldset>
 
       <fieldset>
-        <legend className="font-display text-2xl font-semibold">3. Payment</legend>
+        <legend className="font-display text-2xl">3. Payment</legend>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {(
             [
@@ -141,7 +141,7 @@ export function BookingForm({ slug, rooms, depositPercent, policy }: { slug: str
       <div className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-muted">Due today</p>
-          <p className="font-display text-3xl font-semibold">{usd(plan === "deposit" ? deposit : total)}</p>
+          <p className="font-display text-3xl">{usd(plan === "deposit" ? deposit : total)}</p>
           <p className="text-xs text-muted">Total {usd(total)}</p>
         </div>
         <PendingButton size="lg" disabled={!room || room.remaining <= 0} pendingLabel="Holding your places…">

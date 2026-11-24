@@ -21,7 +21,7 @@ export default async function MemberPage({ params }: { params: Promise<{ id: str
       <div className="flex items-center gap-5">
         <Initials name={user.name} className="size-20 text-2xl" />
         <div>
-          <h1 className="font-display text-4xl font-semibold">{user.name}</h1>
+          <h1 className="font-display text-4xl">{user.name}</h1>
           <p className="mt-1 flex flex-wrap items-center gap-x-3 text-sm text-muted">
             {user.location ? (
               <span className="inline-flex items-center gap-1">

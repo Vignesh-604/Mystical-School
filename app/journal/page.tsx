@@ -54,7 +54,7 @@ export default async function JournalPage() {
                     {e.source === "guide" ? <span className="text-xs text-muted">· from Sophia</span> : null}
                     {e.source?.startsWith("lesson:") ? <span className="text-xs text-muted">· from a lesson</span> : null}
                   </div>
-                  <h2 className="font-display mt-2 text-2xl font-semibold text-ink">{e.title}</h2>
+                  <h2 className="font-display mt-2 text-2xl text-ink">{e.title}</h2>
                 </div>
                 <form action={deleteJournalEntryAction}>
                   <input type="hidden" name="id" value={e.id} />

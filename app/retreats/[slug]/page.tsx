@@ -1,6 +1,6 @@
 import { Check, MapPin, Minus, Users } from "lucide-react";
 import { notFound } from "next/navigation";
-import { CoverArt } from "@/components/geometry";
+import { CoverArt, retreatPhoto } from "@/components/geometry";
 import { availabilityLabel } from "@/components/retreat-card";
 import { Badge, Card, Container, Eyebrow, LinkButton } from "@/components/ui";
 import { currentUser } from "@/lib/auth/session";
@@ -27,24 +27,33 @@ export default async function RetreatPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <CoverArt area={retreat.studyArea} seed={retreat.slug} className="border-b border-line">
-        <Container className="py-16 sm:py-24">
-          <Badge tone={avail.tone}>{avail.label}</Badge>
-          <h1 className="font-display mt-4 max-w-3xl text-5xl font-semibold leading-[1.02] text-white sm:text-6xl">{retreat.title}</h1>
-          <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-white/80">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="size-4" /> {retreat.location}, {retreat.country}
-            </span>
-            <span>
-              {dateRange(retreat.startDate, retreat.endDate)} · {nights(retreat.startDate, retreat.endDate)} nights
-            </span>
-          </p>
-        </Container>
-      </CoverArt>
+      <section className="px-2.5 pt-2.5 sm:px-4 sm:pt-4">
+        <CoverArt
+          area={retreat.studyArea}
+          seed={retreat.slug}
+          photo={retreatPhoto(retreat.slug)}
+          label={false}
+          drift
+          className="photo-in mx-auto min-h-[30rem] max-w-[96rem] rounded-[1.75rem] sm:rounded-[2.25rem] lg:min-h-[38rem]"
+        >
+          <div className="flex h-full min-h-[30rem] flex-col justify-end px-6 pb-10 pt-24 text-[#fbf6ea] sm:px-12 lg:min-h-[38rem] lg:px-16 lg:pb-14">
+            <span className="glass w-fit rounded-full px-3.5 py-1 text-xs font-medium">{avail.label}</span>
+            <h1 className="font-display mt-5 max-w-4xl text-[3.4rem] leading-[0.95] sm:text-7xl lg:text-[5.5rem]">{retreat.title}</h1>
+            <p className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-1 text-[#f3ecdc]/85">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="size-4 text-[#e8c88a]" /> {retreat.location}, {retreat.country}
+              </span>
+              <span>
+                {dateRange(retreat.startDate, retreat.endDate)} · {nights(retreat.startDate, retreat.endDate)} nights
+              </span>
+            </p>
+          </div>
+        </CoverArt>
+      </section>
 
-      <Container className="grid gap-12 py-12 lg:grid-cols-[1fr_22rem]">
+      <Container className="grid gap-14 py-16 lg:grid-cols-[1fr_23rem]">
         <div>
-          <p className="text-xl leading-relaxed text-ink">{retreat.summary}</p>
+          <p className="font-display text-[1.9rem] leading-[1.3] text-ink">{retreat.summary}</p>
           <p className="mt-4 text-lg leading-relaxed text-ink-2">{retreat.description}</p>
           <p className="mt-4 text-sm text-muted">Hosted by {retreat.hostName}</p>
 
@@ -53,9 +62,9 @@ export default async function RetreatPage({ params }: { params: Promise<{ slug: 
             <ol className="relative mt-5 space-y-6 border-l border-line pl-6">
               {retreat.itinerary.map((d) => (
                 <li key={d.day} className="relative">
-                  <span className="absolute -left-[1.85rem] top-1.5 size-3 rounded-full border-2 border-gold bg-bg" />
+                  <span className="absolute -left-[1.92rem] top-1.5 size-3.5 rounded-full border-2 border-gold bg-bg" />
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold">{d.day}</p>
-                  <p className="font-display mt-1 text-2xl font-semibold">{d.title}</p>
+                  <p className="font-display mt-1 text-3xl">{d.title}</p>
                   <p className="mt-1 text-ink-2">{d.detail}</p>
                 </li>
               ))}
@@ -100,7 +109,7 @@ export default async function RetreatPage({ params }: { params: Promise<{ slug: 
                       </p>
                     </div>
                     <div className="text-left sm:text-right">
-                      <p className="font-display text-2xl font-semibold">{money(room.priceCents, retreat.currency)}</p>
+                      <p className="font-display text-3xl">{money(room.priceCents, retreat.currency)}</p>
                       <p className="text-xs text-muted">per guest</p>
                       <Badge tone={a.tone} className="mt-1">
                         {a.label}
@@ -121,7 +130,7 @@ export default async function RetreatPage({ params }: { params: Promise<{ slug: 
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <Card className="p-6">
             <p className="text-sm text-muted">From</p>
-            <p className="font-display text-4xl font-semibold">{money(from, retreat.currency)}</p>
+            <p className="font-display text-5xl">{money(from, retreat.currency)}</p>
             <p className="text-sm text-muted">per guest · {retreat.depositPercent}% deposit to reserve</p>
             {remaining > 0 ? (
               <LinkButton href={bookHref} size="lg" className="mt-6 w-full">

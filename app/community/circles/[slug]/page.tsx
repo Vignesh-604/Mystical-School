@@ -38,7 +38,7 @@ export default async function CirclePage({ params }: { params: Promise<{ slug: s
         <Geometry motif={area.motif} className="size-16 shrink-0 text-gold" />
         <div className="flex-1">
           <Eyebrow>Circle · {stats?.members ?? 0} members</Eyebrow>
-          <h1 className="font-display mt-1 text-4xl font-semibold">{circle.name}</h1>
+          <h1 className="font-display mt-1 text-4xl">{circle.name}</h1>
           <p className="mt-1 text-muted">{circle.description}</p>
         </div>
         {user ? (

@@ -20,7 +20,7 @@ export const dynamic = "force-dynamic";
 function Section({ id, title, children }: { id?: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="font-display text-3xl font-semibold">{title}</h2>
+      <h2 className="font-display text-3xl">{title}</h2>
       <div className="mt-4">{children}</div>
     </section>
   );

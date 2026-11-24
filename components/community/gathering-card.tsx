@@ -1,5 +1,6 @@
 import { CalendarDays, Clock, ExternalLink, Users, Video } from "lucide-react";
 import Link from "next/link";
+import { Reveal } from "../motion";
 import { cancelGatheringAction, setGatheringLinkAction, toggleRsvpAction } from "@/app/actions/community";
 import type { upcomingGatherings } from "@/lib/community";
 import { Badge, Button, Input } from "../ui";
@@ -13,6 +14,7 @@ export function GatheringCard({ g, viewerId, compact }: { g: G; viewerId?: strin
   const live = start - 10 * 60_000 <= now && now <= start + g.durationMin * 60_000;
   const isHost = viewerId === g.hostId;
   return (
+    <Reveal>
     <article className="rounded-2xl border border-line bg-surface p-5">
       <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
         <span className="inline-flex items-center gap-1">
@@ -23,7 +25,7 @@ export function GatheringCard({ g, viewerId, compact }: { g: G; viewerId?: strin
         </span>
         {live ? <Badge tone="sage">Happening now</Badge> : null}
       </div>
-      <h3 className="font-display mt-2 text-2xl font-semibold leading-tight">{g.title}</h3>
+      <h3 className="font-display mt-2 text-2xl leading-tight">{g.title}</h3>
       {!compact ? <p className="mt-1 text-[0.95rem] leading-relaxed text-ink-2">{g.description}</p> : null}
       <p className="mt-2 text-sm text-muted">
         Hosted by {g.hostName}
@@ -85,5 +87,6 @@ export function GatheringCard({ g, viewerId, compact }: { g: G; viewerId?: strin
         </div>
       ) : null}
     </article>
+    </Reveal>
   );
 }

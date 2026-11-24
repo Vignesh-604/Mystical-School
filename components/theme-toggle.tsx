@@ -7,8 +7,7 @@ export function ThemeToggle() {
   const [dark, setDark] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const explicit = document.documentElement.dataset.theme;
-    setDark(explicit ? explicit === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches);
+    setDark(document.documentElement.dataset.theme === "dark");
   }, []);
 
   function toggle() {
@@ -26,10 +25,10 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
-      className="inline-flex size-9 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-ink"
+      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-1.5 text-xs text-on-night/75 transition-colors hover:border-white/30 hover:text-on-night"
     >
-      {dark === null ? <span className="size-4" /> : dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+      {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
+      {dark === null ? "Theme" : dark ? "Morning theme" : "Evening theme"}
     </button>
   );
 }

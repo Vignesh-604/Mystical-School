@@ -24,7 +24,7 @@ export default async function MembershipPage() {
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <Card className="flex flex-col p-8">
           <p className="text-sm font-medium text-muted">{PLANS.seeker.name}</p>
-          <p className="font-display mt-2 text-5xl font-semibold">Free</p>
+          <p className="font-display mt-2 text-5xl">Free</p>
           <p className="mt-2 text-muted">{PLANS.seeker.tagline}</p>
           <ul className="mt-8 space-y-3 text-[0.95rem]">
             {PLAN_FEATURES.map((f) => (
@@ -51,7 +51,7 @@ export default async function MembershipPage() {
         <Card className="relative flex flex-col overflow-hidden border-gold/40 p-8">
           <Geometry motif="flower" className="pointer-events-none absolute -right-16 -top-16 size-72 text-gold/15" strokeWidth={0.7} />
           <p className="text-sm font-medium text-gold">{PLANS.initiate.name}</p>
-          <p className="font-display mt-2 text-5xl font-semibold">
+          <p className="font-display mt-2 text-5xl">
             $19<span className="text-xl font-normal text-muted"> / month</span>
           </p>
           <p className="mt-2 text-muted">{PLANS.initiate.tagline} Or $190 a year (two months free).</p>

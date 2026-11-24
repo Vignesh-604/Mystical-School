@@ -13,7 +13,7 @@ export default async function OnboardingPage() {
   return (
     <Container className="max-w-3xl py-14">
       <Eyebrow>Welcome, {user.name.split(" ")[0]}</Eyebrow>
-      <h1 className="font-display mt-3 text-4xl font-semibold leading-tight sm:text-5xl">Let&rsquo;s begin where you are.</h1>
+      <h1 className="font-display mt-3 text-4xl leading-tight sm:text-5xl">Let&rsquo;s begin where you are.</h1>
       <p className="mt-4 max-w-2xl text-[1.05rem] leading-relaxed text-muted">
         A few questions help Sophia, your guide, meet you where you are. What you share stays private to you and is
         used only to shape your guidance.

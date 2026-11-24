@@ -29,17 +29,40 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
 
   return (
     <>
-      <CoverArt area={course.studyArea} seed={course.slug} className="border-b border-line">
-        <Container className="py-16 sm:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-current/90">{area.name}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-5xl font-semibold leading-[1.02] text-white sm:text-6xl">{course.title}</h1>
-          <p className="mt-3 max-w-2xl text-xl text-white/80">{course.subtitle}</p>
-        </Container>
-      </CoverArt>
+      <Container className="grid items-center gap-12 pb-6 pt-14 lg:grid-cols-[1.25fr_1fr] lg:pt-20">
+        <div className="animate-fade-up">
+          <p className="kicker">{area.name}</p>
+          <h1 className="font-display mt-5 text-6xl leading-[0.95] text-ink sm:text-7xl">{course.title}</h1>
+          <p className="font-display mt-4 text-3xl italic leading-snug text-gold">{course.subtitle}</p>
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+            <div>
+              <dt className="text-muted">Teacher</dt>
+              <dd className="font-medium text-ink">{course.teacherName}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Length</dt>
+              <dd className="font-medium text-ink">{course.durationLabel}</dd>
+            </div>
+            <div>
+              <dt className="text-muted">Lessons</dt>
+              <dd className="font-medium text-ink">{lessons.length}</dd>
+            </div>
+          </dl>
+        </div>
+        <div className="relative mx-auto w-full max-w-sm animate-fade-up delay-2">
+          <div aria-hidden className="absolute inset-x-6 -bottom-6 h-10 rounded-full bg-night/25 blur-2xl" />
+          <CoverArt area={course.studyArea} seed={course.slug} className="float-slow aspect-[3/4] -rotate-2 rounded-[1.1rem] shadow-lift ring-1 ring-black/10">
+            <div className="flex h-full flex-col justify-end p-7">
+              <p className="font-display text-4xl leading-none">{course.title}</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.2em] opacity-75">Mystical School</p>
+            </div>
+          </CoverArt>
+        </div>
+      </Container>
 
-      <Container className="grid gap-12 py-12 lg:grid-cols-[1fr_22rem]">
+      <Container className="grid gap-14 py-16 lg:grid-cols-[1fr_23rem]">
         <div>
-          <p className="text-lg leading-relaxed text-ink-2">{course.description}</p>
+          <p className="font-display text-[1.9rem] leading-[1.3] text-ink">{course.description}</p>
 
           <section className="mt-12">
             <Eyebrow>What you&rsquo;ll gain</Eyebrow>
@@ -63,7 +86,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
             <ol className="mt-4 space-y-6">
               {modules.map((m, mi) => (
                 <li key={m.id}>
-                  <h2 className="font-display text-2xl font-semibold">
+                  <h2 className="font-display text-2xl">
                     <span className="mr-2 text-gold">{mi + 1}.</span>
                     {m.title}
                   </h2>
@@ -107,7 +130,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
 
           <section className="mt-12 rounded-2xl border border-line bg-surface p-6">
             <Eyebrow>Your teacher</Eyebrow>
-            <p className="font-display mt-2 text-2xl font-semibold">{course.teacherName}</p>
+            <p className="font-display mt-2 text-2xl">{course.teacherName}</p>
             <p className="mt-1 text-ink-2">{course.teacherBio}</p>
           </section>
         </div>
@@ -131,7 +154,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
               </>
             ) : (
               <>
-                <p className="font-display text-4xl font-semibold">{money(course.priceCents, course.currency)}</p>
+                <p className="font-display text-4xl">{money(course.priceCents, course.currency)}</p>
                 <p className="mt-1 text-sm text-muted">One-time payment · lifetime access</p>
                 <ul className="mt-5 space-y-1.5 text-sm text-ink-2">
                   <li>{course.durationLabel}</li>

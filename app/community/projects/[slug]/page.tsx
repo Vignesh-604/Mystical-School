@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <Badge tone={STATUS[project.status].tone}>{STATUS[project.status].label}</Badge>
             <span className="text-sm text-white/70">{studyArea(project.studyArea).name}</span>
           </div>
-          <h1 className="font-display mt-3 max-w-3xl text-5xl font-semibold leading-[1.02] text-white">{project.title}</h1>
+          <h1 className="font-display mt-3 max-w-3xl text-5xl leading-[1.02] text-white">{project.title}</h1>
           <p className="mt-3 max-w-2xl text-lg text-white/80">{project.summary}</p>
         </Container>
       </CoverArt>
@@ -69,7 +69,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           ) : null}
 
           <section className="mt-12">
-            <h2 className="font-display text-3xl font-semibold">Updates</h2>
+            <h2 className="font-display text-3xl">Updates</h2>
             {me ? (
               <div className="mt-4 rounded-2xl border border-line bg-surface p-4">
                 <ProjectUpdateForm projectId={project.id} />

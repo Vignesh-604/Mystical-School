@@ -29,7 +29,7 @@ export default async function AdminBookings() {
         return (
           <section key={r.id}>
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h2 className="font-display text-3xl font-semibold">{r.title}</h2>
+              <h2 className="font-display text-3xl">{r.title}</h2>
               <p className="text-sm text-muted">
                 {r.location} · {dateRange(r.startDate, r.endDate)}
               </p>

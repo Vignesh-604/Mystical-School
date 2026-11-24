@@ -7,7 +7,7 @@ export default function SupportPage() {
   return (
     <Container className="max-w-3xl py-14">
       <Eyebrow>Care</Eyebrow>
-      <h1 className="font-display mt-2 text-5xl font-semibold">If you need support now</h1>
+      <h1 className="font-display mt-2 text-5xl">If you need support now</h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">
         Spiritual practice can be a great comfort, but some moments need human help, quickly. There is no shame in reaching out. It
         is an act of courage and of care for yourself.
@@ -18,7 +18,7 @@ export default function SupportPage() {
       <div className="mt-10 space-y-8">
         {Object.values(CRISIS_RESOURCES).map((r) => (
           <section key={r.title}>
-            <h2 className="font-display text-3xl font-semibold">{r.title}</h2>
+            <h2 className="font-display text-3xl">{r.title}</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-[1.05rem] leading-relaxed text-ink-2">
               {r.lines.map((l) => (
                 <li key={l}>{l}</li>

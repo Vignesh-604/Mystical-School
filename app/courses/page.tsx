@@ -16,32 +16,25 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
   const areas = STUDY_AREAS.filter((a) => all.some((c) => c.studyArea === a.key));
   const shown = area ? all.filter((c) => c.studyArea === area) : all;
 
+  const chip = (active: boolean) =>
+    cn(
+      "rounded-full border px-4 py-2 text-sm transition-colors",
+      active ? "border-moss bg-moss text-bg dark:text-night" : "border-line-strong bg-surface/60 text-ink-2 hover:border-ink/30 hover:text-ink",
+    );
+
   return (
-    <Container className="py-14">
-      <PageHeader eyebrow="Courses" title="Learn, practise, contribute">
-        Each course moves through teaching, a daily practice and a &ldquo;Wisdom in Action&rdquo; step that turns what you learn into
-        something good for others. Every course has free preview lessons.
+    <Container className="py-16">
+      <PageHeader eyebrow="The course library" title={<>Learn, practise, <em>contribute.</em></>} photo="hero">
+        Each course moves through teaching, a daily practice and a Wisdom in Action step that turns what you learn into something
+        good for others. Every course has free preview lessons.
       </PageHeader>
 
-      <nav aria-label="Filter by subject" className="mt-10 flex flex-wrap gap-2">
-        <Link
-          href="/courses"
-          className={cn(
-            "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
-            !area ? "border-ink bg-ink text-bg" : "border-line-strong text-ink-2 hover:bg-surface-2",
-          )}
-        >
-          All
+      <nav aria-label="Filter by subject" className="mt-16 flex flex-wrap gap-2">
+        <Link href="/courses" className={chip(!area)}>
+          All subjects
         </Link>
         {areas.map((a) => (
-          <Link
-            key={a.key}
-            href={`/courses?area=${a.key}`}
-            className={cn(
-              "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
-              area === a.key ? "border-ink bg-ink text-bg" : "border-line-strong text-ink-2 hover:bg-surface-2",
-            )}
-          >
+          <Link key={a.key} href={`/courses?area=${a.key}`} className={chip(area === a.key)}>
             {a.name}
           </Link>
         ))}
@@ -52,9 +45,9 @@ export default async function CoursesPage({ searchParams }: { searchParams: Prom
           New courses in this subject are being prepared.
         </EmptyState>
       ) : (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {shown.map((c) => (
-            <CourseCard key={c.id} course={c} enrolled={enrolled.has(c.id)} />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {shown.map((c, i) => (
+            <CourseCard key={c.id} index={i} course={c} enrolled={enrolled.has(c.id)} />
           ))}
         </div>
       )}

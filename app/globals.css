@@ -2,74 +2,59 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* ─── Palette: morning light through the forest ─────────────────────────── */
 :root {
-  --bg: #f6f2ea;
+  --bg: #f5f1e8;
   --surface: #fffdf8;
-  --surface-2: #efe9dd;
-  --ink: #1c1a26;
-  --ink-2: #3a3747;
-  --muted: #6c6676;
+  --surface-2: #eee8da;
+  --surface-3: #e5ddcb;
+  --ink: #1c2620;
+  --ink-2: #3a453e;
+  --muted: #6b7068;
   --line: #e2dacb;
-  --line-strong: #cfc4b0;
-  --gold: #9a6d22;
-  --gold-soft: #e9d9b5;
-  --gold-ink: #7a5414;
-  --indigo: #34336a;
-  --indigo-soft: #e3e2f2;
-  --sage: #4f6e5a;
-  --sage-soft: #dfe9e1;
-  --rose: #9b3b3b;
-  --rose-soft: #f4dfdc;
-  --focus: #9a6d22;
-  --shadow: 0 1px 2px rgb(28 26 38 / 0.04), 0 8px 24px -12px rgb(28 26 38 / 0.12);
+  --line-strong: #cbc1ad;
+  --moss: #2f4a3b;
+  --moss-2: #3f6150;
+  --moss-soft: #dfe7dd;
+  --gold: #a5772d;
+  --gold-bright: #c99a4a;
+  --gold-soft: #f1e5cb;
+  --rose: #9a4335;
+  --rose-soft: #f4e1da;
+  --night: #16211b;
+  --night-2: #1f2d25;
+  --on-night: #efe7d6;
+  --shadow-sm: 0 1px 2px rgb(28 38 32 / 0.05);
+  --shadow: 0 1px 2px rgb(28 38 32 / 0.04), 0 12px 32px -16px rgb(28 38 32 / 0.18);
+  --shadow-lg: 0 2px 6px rgb(28 38 32 / 0.05), 0 30px 60px -24px rgb(28 38 32 / 0.28);
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f0e18;
-    --surface: #171622;
-    --surface-2: #1f1d2c;
-    --ink: #ece6da;
-    --ink-2: #cfc8bb;
-    --muted: #a19bab;
-    --line: #2a2838;
-    --line-strong: #3a3749;
-    --gold: #d6ad5e;
-    --gold-soft: #3a2f1c;
-    --gold-ink: #e7c47f;
-    --indigo: #a9a7ea;
-    --indigo-soft: #24233e;
-    --sage: #8fb59b;
-    --sage-soft: #1d2a22;
-    --rose: #e29a92;
-    --rose-soft: #3a2222;
-    --focus: #d6ad5e;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -12px rgb(0 0 0 / 0.5);
-    color-scheme: dark;
-  }
-}
-
+/* Dark (evening) theme is opt-in from the footer switch; light is the default everywhere. */
 :root[data-theme="dark"] {
-  --bg: #0f0e18;
-  --surface: #171622;
-  --surface-2: #1f1d2c;
-  --ink: #ece6da;
-  --ink-2: #cfc8bb;
-  --muted: #a19bab;
-  --line: #2a2838;
-  --line-strong: #3a3749;
-  --gold: #d6ad5e;
-  --gold-soft: #3a2f1c;
-  --gold-ink: #e7c47f;
-  --indigo: #a9a7ea;
-  --indigo-soft: #24233e;
-  --sage: #8fb59b;
-  --sage-soft: #1d2a22;
-  --rose: #e29a92;
-  --rose-soft: #3a2222;
-  --focus: #d6ad5e;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -12px rgb(0 0 0 / 0.5);
+  --bg: #0f1612;
+  --surface: #151e19;
+  --surface-2: #1b2620;
+  --surface-3: #223028;
+  --ink: #ede6d6;
+  --ink-2: #cdc6b6;
+  --muted: #979d93;
+  --line: #253129;
+  --line-strong: #34433a;
+  --moss: #a9c7ae;
+  --moss-2: #c2d8c5;
+  --moss-soft: #1d2b23;
+  --gold: #d8b26a;
+  --gold-bright: #e6c486;
+  --gold-soft: #33291a;
+  --rose: #e3a093;
+  --rose-soft: #3a2420;
+  --night: #0a100d;
+  --night-2: #121b16;
+  --on-night: #efe7d6;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 14px 34px -16px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.3), 0 30px 60px -24px rgb(0 0 0 / 0.7);
   color-scheme: dark;
 }
 
@@ -77,42 +62,68 @@
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
+  --color-moss: var(--moss);
+  --color-moss-2: var(--moss-2);
+  --color-moss-soft: var(--moss-soft);
   --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
   --color-gold-soft: var(--gold-soft);
-  --color-gold-ink: var(--gold-ink);
-  --color-indigo: var(--indigo);
-  --color-indigo-soft: var(--indigo-soft);
-  --color-sage: var(--sage);
-  --color-sage-soft: var(--sage-soft);
   --color-rose: var(--rose);
   --color-rose-soft: var(--rose-soft);
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-sans: var(--font-figtree), "Figtree", system-ui, sans-serif;
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-on-night: var(--on-night);
+  /* Legacy aliases so older class names keep working */
+  --color-gold-ink: var(--gold);
+  --color-sage: var(--moss-2);
+  --color-sage-soft: var(--moss-soft);
+  --color-indigo: var(--moss);
+  --color-indigo-soft: var(--moss-soft);
+  --font-display: var(--font-instrument), "Instrument Serif", Georgia, serif;
+  --font-sans: var(--font-hanken), "Hanken Grotesk", system-ui, sans-serif;
   --shadow-soft: var(--shadow);
+  --shadow-lift: var(--shadow-lg);
+  --radius-card: 1.25rem;
 }
 
+/* ─── Base ──────────────────────────────────────────────────────────────── */
 html {
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "cv11";
+  font-size: 1rem;
+  line-height: 1.6;
   min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A whisper of paper grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 ::selection {
@@ -122,32 +133,79 @@ body {
 
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+.font-display em,
+em.accent {
+  font-style: italic;
+  color: var(--gold);
 }
 
-/* Long-form reading: lessons and Sophia's replies */
+/* Section label: small caps with a short rule */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.kicker::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* Hairline divider with a centred point of light */
+.divider-light {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold);
+}
+.divider-light::before,
+.divider-light::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+/* ─── Long-form reading ─────────────────────────────────────────────────── */
 .prose-ms {
-  font-size: 1.0625rem;
-  line-height: 1.75;
+  font-size: 1.125rem;
+  line-height: 1.8;
   color: var(--ink-2);
 }
 .prose-ms > * + * {
-  margin-top: 1em;
+  margin-top: 1.1em;
+}
+.prose-ms > p:first-child::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.2em;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--moss);
 }
 .prose-ms h2,
 .prose-ms h3 {
   font-family: var(--font-display);
+  font-weight: 400;
   color: var(--ink);
-  line-height: 1.2;
+  line-height: 1.15;
   margin-top: 1.6em;
 }
 .prose-ms h2 {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 2rem;
 }
 .prose-ms h3 {
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.5rem;
 }
 .prose-ms strong {
   color: var(--ink);
@@ -155,7 +213,7 @@ body {
 }
 .prose-ms ul,
 .prose-ms ol {
-  padding-left: 1.25em;
+  padding-left: 1.3em;
 }
 .prose-ms ul {
   list-style: disc;
@@ -164,49 +222,87 @@ body {
   list-style: decimal;
 }
 .prose-ms li + li {
-  margin-top: 0.35em;
+  margin-top: 0.4em;
 }
 .prose-ms li::marker {
   color: var(--gold);
 }
 .prose-ms blockquote {
+  margin: 1.8em 0;
+  padding: 0.2em 0 0.2em 1.2em;
   border-left: 2px solid var(--gold);
-  padding-left: 1em;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-style: italic;
+  line-height: 1.35;
   color: var(--ink);
 }
 
 .prose-chat {
-  font-size: 0.98rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.72;
 }
 .prose-chat > * + * {
-  margin-top: 0.7em;
+  margin-top: 0.75em;
 }
 .prose-chat ul {
   list-style: disc;
-  padding-left: 1.2em;
+  padding-left: 1.25em;
 }
 .prose-chat ol {
   list-style: decimal;
-  padding-left: 1.2em;
+  padding-left: 1.25em;
+}
+.prose-chat li + li {
+  margin-top: 0.3em;
+}
+.prose-chat li::marker {
+  color: var(--gold);
 }
 .prose-chat strong {
   font-weight: 600;
+  color: var(--ink);
 }
 
-/* Sophia's presence: slow breathing when idle */
+/* ─── Photography ───────────────────────────────────────────────────────── */
+.photo-veil {
+  background: linear-gradient(180deg, rgb(10 16 12 / 0) 30%, rgb(10 16 12 / 0.55) 75%, rgb(10 16 12 / 0.8) 100%);
+}
+.photo-veil-left {
+  background: linear-gradient(90deg, rgb(10 16 12 / 0.72) 0%, rgb(10 16 12 / 0.35) 45%, rgb(10 16 12 / 0) 75%);
+}
+.glass {
+  background: rgb(255 253 248 / 0.12);
+  border: 1px solid rgb(255 253 248 / 0.22);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+/* Cards that lift gently */
+.lift {
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.lift .lift-img {
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.lift:hover .lift-img {
+  transform: scale(1.04);
+}
+
+/* ─── Motion ────────────────────────────────────────────────────────────── */
 @keyframes ms-breathe {
   0%,
   100% {
     transform: scale(1);
-    opacity: 0.92;
   }
   50% {
-    transform: scale(1.035);
-    opacity: 1;
+    transform: scale(1.045);
   }
 }
 @keyframes ms-spin {
@@ -217,39 +313,62 @@ body {
 @keyframes ms-fade-up {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: none;
   }
 }
-.animate-breathe {
-  animation: ms-breathe 7s ease-in-out infinite;
-}
-.animate-slow-spin {
-  animation: ms-spin 120s linear infinite;
-}
-.animate-fade-up {
-  animation: ms-fade-up 0.35s ease-out both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-breathe,
-  .animate-slow-spin,
-  .animate-fade-up {
-    animation: none;
+@keyframes ms-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
   }
 }
+@keyframes ms-ripple {
+  from {
+    transform: scale(0.9);
+    opacity: 0.55;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+.animate-breathe {
+  animation: ms-breathe 8s ease-in-out infinite;
+}
+.animate-slow-spin {
+  animation: ms-spin 140s linear infinite;
+}
+.animate-fade-up {
+  animation: ms-fade-up 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.delay-1 {
+  animation-delay: 0.08s;
+}
+.delay-2 {
+  animation-delay: 0.16s;
+}
+.delay-3 {
+  animation-delay: 0.24s;
+}
 
-/* Typing indicator */
+/* Typing dots */
 @keyframes ms-dot {
   0%,
   80%,
   100% {
     opacity: 0.25;
+    transform: translateY(0);
   }
   40% {
     opacity: 1;
+    transform: translateY(-2px);
   }
 }
 .typing-dot {
@@ -260,4 +379,361 @@ body {
 }
 .typing-dot:nth-child(3) {
   animation-delay: 0.3s;
+}
+
+/* ─── Sophia's presence: a lantern of light ─────────────────────────────── */
+.orb {
+  --level: 0;
+  position: relative;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.orb__halo {
+  position: absolute;
+  inset: 4%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgb(221 176 99 / 0.45), rgb(221 176 99 / 0.08) 45%, transparent 70%);
+  filter: blur(6px);
+  opacity: calc(0.5 + var(--level) * 0.5);
+  transform: scale(calc(1 + var(--level) * 0.25));
+  transition: opacity 0.15s linear;
+  animation: ms-glow 6s ease-in-out infinite;
+}
+.orb__ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--gold) 55%, transparent);
+}
+.orb__ring--1 {
+  inset: 10%;
+  border-style: dashed;
+  animation: ms-spin 60s linear infinite;
+}
+.orb__ring--2 {
+  inset: 20%;
+  border-color: color-mix(in oklab, var(--moss) 35%, transparent);
+  animation: ms-spin 40s linear infinite reverse;
+}
+.orb__core {
+  position: relative;
+  width: 38%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 35% 30%, #fff8e8 0%, #f3d9a0 28%, #d2a253 62%, #8e6526 100%);
+  box-shadow:
+    0 0 0 1px rgb(255 248 232 / 0.4) inset,
+    0 10px 40px -6px rgb(201 154 74 / 0.75);
+  transform: scale(calc(1 + var(--level) * 0.22));
+  transition: transform 0.08s linear;
+}
+.orb[data-state="idle"] .orb__core {
+  animation: ms-breathe 8s ease-in-out infinite;
+}
+.orb[data-state="listening"] .orb__core {
+  background: radial-gradient(circle at 35% 30%, #f6fbf5 0%, #cfe2d2 30%, #7fa588 64%, #3f6150 100%);
+  box-shadow:
+    0 0 0 1px rgb(246 251 245 / 0.4) inset,
+    0 10px 40px -6px rgb(79 120 95 / 0.7);
+}
+.orb[data-state="listening"] .orb__halo {
+  background: radial-gradient(circle, rgb(127 165 136 / 0.45), rgb(127 165 136 / 0.08) 45%, transparent 70%);
+}
+.orb[data-state="connecting"] .orb__ring--1,
+.orb[data-state="thinking"] .orb__ring--1 {
+  animation-duration: 6s;
+}
+.orb__ripple {
+  position: absolute;
+  inset: 26%;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--moss-2) 60%, transparent);
+  animation: ms-ripple 2.6s ease-out infinite;
+}
+.orb__ripple:nth-of-type(2) {
+  animation-delay: 1.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal[data-variant] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+  .line-mask > span {
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Logo ──────────────────────────────────────────────────────────────── */
+.logo-petal {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+.logo-animate .logo-petal {
+  animation: logo-bloom 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 80ms + 120ms);
+}
+.logo-animate .logo-ring {
+  stroke-dasharray: 1;
+  animation: draw-line 1.4s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+.logo-rosette {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.logo-hover:hover .logo-rosette,
+a:hover > .logo-mark .logo-rosette {
+  transform: rotate(60deg);
+}
+@keyframes logo-bloom {
+  from {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ─── Page enter ────────────────────────────────────────────────────────── */
+.page-enter {
+  animation: page-in 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ─── Scroll reveals (see components/motion.tsx) ────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.9s ease;
+  transition-delay: var(--delay, 0ms);
+}
+.reveal[data-variant="scale"] {
+  transform: scale(0.94) translateY(20px);
+}
+.reveal[data-variant="left"] {
+  transform: translateX(-36px);
+}
+.reveal[data-variant="clip"] {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  clip-path: inset(100% 0 0 0 round 1.75rem);
+  transition: clip-path 1.4s cubic-bezier(0.7, 0, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal[data-in="true"] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.reveal[data-variant="clip"][data-in="true"] {
+  clip-path: inset(0 0 0 0 round 1.75rem);
+}
+
+/* Fine-line emblems draw themselves when their card scrolls in */
+.reveal .geo-draw :is(circle, line, polygon, polyline) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.6, 0, 0.2, 1) 0.25s;
+}
+.reveal[data-in="true"] .geo-draw :is(circle, line, polygon, polyline) {
+  stroke-dashoffset: 0;
+}
+.geo-turn {
+  transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.lift:hover .geo-turn,
+.tilt:hover .geo-turn {
+  transform: rotate(30deg);
+}
+
+/* Headlines rise line by line from behind a mask */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.12em 0.22em 0;
+  margin-bottom: -0.22em;
+}
+.line-mask > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: line-up 1.15s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes line-up {
+  to {
+    transform: none;
+  }
+}
+
+/* Photographs drift slowly, like light moving through leaves */
+.kenburns {
+  animation: kenburns 30s ease-in-out infinite alternate;
+  transform-origin: 60% 45%;
+}
+@keyframes kenburns {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.16) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+/* A warm pool of light that follows the pointer across the hero */
+.spotlight {
+  background: radial-gradient(520px circle at var(--mx, 72%) var(--my, 38%), rgb(255 226 160 / 0.2), transparent 62%);
+  mix-blend-mode: screen;
+}
+
+/* Values band */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem;
+  animation: marquee 50s linear infinite;
+}
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Cards that tilt toward the pointer, with a soft glare */
+.tilt {
+  transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+.tilt[data-active="true"] {
+  transition: transform 0.12s linear;
+}
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgb(255 248 230 / 0.28), transparent 46%);
+  opacity: 0;
+  transition: opacity 0.45s;
+}
+.tilt[data-active="true"] .tilt-glare {
+  opacity: 1;
+}
+
+/* A sweep of light across primary buttons */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.32) 50%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.shine:hover::after {
+  transform: translateX(130%);
+}
+
+/* Ripple diagram: rings of influence spreading outward */
+.ripple-pulse {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: ripple-out 6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+@keyframes ripple-out {
+  0% {
+    transform: scale(0.12);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Mobile menu items cascade in */
+.menu-item {
+  animation: ms-fade-up 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i) * 60ms + 60ms);
+}
+
+/* Header photographs open with a wipe */
+.photo-in {
+  animation: photo-in 1.5s cubic-bezier(0.7, 0, 0.2, 1) both 0.15s;
+}
+@keyframes photo-in {
+  from {
+    clip-path: inset(100% 0 0 0 round 1.75rem);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 1.75rem);
+  }
+}
+
+/* A book resting on still air */
+.float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

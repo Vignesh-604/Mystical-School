@@ -1,5 +1,6 @@
 import { Heart, Trash2 } from "lucide-react";
 import Link from "next/link";
+import { Reveal } from "../motion";
 import { deleteOwnCommentAction, deleteOwnPostAction, toggleResonateAction } from "@/app/actions/community";
 import type { FeedPost } from "@/lib/community";
 import { cn } from "@/lib/cn";
@@ -9,6 +10,7 @@ import { CommentForm, ReportButton } from "./forms";
 
 export function PostCard({ post, viewerId, showCircle }: { post: FeedPost; viewerId?: string; showCircle?: boolean }) {
   return (
+    <Reveal>
     <article id={post.id} className="scroll-mt-24 rounded-2xl border border-line bg-surface p-5">
       <header className="flex items-start gap-3">
         <Initials name={post.author.name} />
@@ -98,5 +100,6 @@ export function PostCard({ post, viewerId, showCircle }: { post: FeedPost; viewe
         </div>
       ) : null}
     </article>
+    </Reveal>
   );
 }

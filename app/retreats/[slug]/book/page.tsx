@@ -25,7 +25,7 @@ export default async function BookRetreatPage({ params }: { params: Promise<{ sl
       <Eyebrow className="mt-6">
         {retreat.location} · {dateRange(retreat.startDate, retreat.endDate)}
       </Eyebrow>
-      <h1 className="font-display mt-2 text-5xl font-semibold">Reserve your place</h1>
+      <h1 className="font-display mt-2 text-5xl">Reserve your place</h1>
       <div className="mt-10">
         <BookingForm
           slug={retreat.slug}

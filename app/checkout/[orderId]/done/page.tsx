@@ -41,7 +41,7 @@ export default async function CheckoutDonePage({ params }: { params: Promise<{ o
   return (
     <Container className="max-w-xl py-20 text-center">
       <Geometry motif="seed" className="animate-breathe mx-auto size-20 text-gold" />
-      <h1 className="font-display mt-8 text-5xl font-semibold">{title}</h1>
+      <h1 className="font-display mt-8 text-5xl">{title}</h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">{body}</p>
       <p className="mt-3 text-sm text-muted">
         Test payment of {money(order.amountCents, order.currency)} recorded · ref {order.providerRef}

@@ -65,7 +65,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ order
 
   return (
     <Container className="max-w-xl py-16">
-      <h1 className="font-display text-4xl font-semibold">Checkout</h1>
+      <h1 className="font-display text-4xl">Checkout</h1>
       <Notice tone="gold" className="mt-6" title="Test mode: no real payment">
         This local build uses a simulated payment provider. Completing checkout records a test payment; no card is asked for and no
         money moves.
@@ -76,7 +76,7 @@ export default async function CheckoutPage({ params }: { params: Promise<{ order
             <p className="font-medium text-ink">{order.description}</p>
             <div className="mt-1">{detail}</div>
           </div>
-          <p className="font-display text-2xl font-semibold">{money(order.amountCents, order.currency)}</p>
+          <p className="font-display text-2xl">{money(order.amountCents, order.currency)}</p>
         </div>
         <div className="mt-6 border-t border-line pt-6">
           <CheckoutForm orderId={order.id} amountLabel={money(order.amountCents, order.currency)} />

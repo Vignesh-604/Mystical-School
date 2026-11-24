@@ -49,7 +49,7 @@ export default async function AdminOverview() {
         {stats.map((s) => (
           <Card key={s.label} className="p-5">
             <p className="text-sm text-muted">{s.label}</p>
-            <p className="font-display mt-1 text-3xl font-semibold tabular-nums">{s.value}</p>
+            <p className="font-display mt-1 text-3xl tabular-nums">{s.value}</p>
           </Card>
         ))}
       </div>
@@ -60,7 +60,7 @@ export default async function AdminOverview() {
 
       <div className="grid gap-8 lg:grid-cols-2">
         <section>
-          <h2 className="font-display text-2xl font-semibold">Recent payments</h2>
+          <h2 className="font-display text-2xl">Recent payments</h2>
           <ul className="mt-3 divide-y divide-line rounded-2xl border border-line bg-surface text-sm">
             {recentOrders.length ? (
               recentOrders.map(({ o, name }) => (
@@ -80,7 +80,7 @@ export default async function AdminOverview() {
           </ul>
         </section>
         <section>
-          <h2 className="font-display text-2xl font-semibold">Activity log</h2>
+          <h2 className="font-display text-2xl">Activity log</h2>
           <ul className="mt-3 divide-y divide-line rounded-2xl border border-line bg-surface font-mono text-xs">
             {log.map((e) => (
               <li key={e.id} className="flex justify-between gap-3 px-4 py-2.5">

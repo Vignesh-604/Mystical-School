@@ -2,6 +2,67 @@
 
 Newest first.
 
+## 2026-11-25: motion, responsive fixes and a new logo
+
+- **Mobile menu fixed.** The header's backdrop blur trapped the fixed-position menu inside
+  the header, so page content showed through. The menu now renders through a portal into
+  `<body>` as a full-screen sheet with cascading links.
+- **Light theme by default.** The site followed the system theme, so dark-mode systems saw
+  the green evening palette. Light is now the default everywhere; dark is opt-in from the
+  footer switch.
+- **New logo:** a six-petal rosette from overlapping circles, the classic sacred-geometry
+  flower. It blooms in on load and turns on hover; the tab icons are regenerated.
+- **Motion:**
+  - Hero: the photo drifts and parallaxes, with light motes on canvas that part around
+    the pointer, a pointer-following glow, and the headline rising line by line.
+  - Across the site: scroll reveals, header photos that open with a wipe, course emblems
+    that draw themselves, a moving values band, doorway cards that tilt with glare,
+    ripple rings, a floating book cover, button shine, and page-enter transitions.
+  - All of it respects reduced-motion settings, and the canvas pauses off-screen.
+- Verified: no horizontal overflow on 11 pages at 375px and 4 at 820px; the mobile menu
+  sits above the page; type check, 16 tests and the production build pass.
+
+## 2026-11-25: new design, logo, and the voice microphone fix
+
+- **Voice fix.** Members' voice sessions saved Sophia's greeting but none of their words.
+  Sending recorded speech straight to Gemini Live worked, so the fault was the browser
+  microphone delivering silence (wrong input or Windows privacy), with nothing on screen
+  to show it. The voice panel now:
+  - starts audio inside the click;
+  - meters the mic from the moment it opens;
+  - has "Test microphone" (no session started) and an input picker;
+  - warns when an input sends pure silence;
+  - explains that the Claude preview pane blocks microphones.
+- **Voice verified end to end in the browser** with a recorded clip as the microphone:
+  transcribed, answered aloud, and saved. The silent-input warning was verified too.
+- **Redesign.**
+  - Look: a warm paper palette with forest ink, moss and one gold accent, plus a
+    forest-night dark theme, set in Instrument Serif and Hanken Grotesk.
+  - Pages: the five photos framed and used throughout, book-style course covers,
+    photo-led retreat cards, and a new landing page, guide, home, community, auth and
+    detail pages.
+  - Sophia's presence is now a glowing lantern.
+  - Removed the previous `edition` styles and components.
+- **Logo:** a "threshold" mark (an open doorway with a point of light), served as
+  `app/icon.svg`, `favicon.ico` and `apple-icon.png`.
+
+## 2026-11-25: dark palette and voice fixes
+
+- Replaced the green surfaces with a dark ink and plum palette, removed the theme
+  control and cursor tracking, and gave display headings and buttons more room.
+- Made Sophia's voice controls and status messages scrollable on short screens.
+- Started browser audio during the user gesture, added a microphone level meter,
+  and surfaced capture and connection failures separately from normal completion.
+
+## 2026-11-25: visual redesign
+
+- Rebuilt the homepage around a forest scene, a keyboard-accessible school index,
+  an editorial course list and a retreat feature.
+- Updated the shared color palette, navigation, footer and covers. Brought the
+  same design to the main catalog, community, account entry and Sophia screens.
+- Added scroll depth, image transitions and an audio-responsive Sophia mark,
+  with reduced motion support.
+
 ## 2026-11-24: face-to-face video switched on
 
 - Created Sophia's persona on the Tavus account with the owner's approval

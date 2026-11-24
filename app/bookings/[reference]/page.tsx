@@ -51,7 +51,7 @@ export default async function BookingPage({
             <Badge tone={status.tone}>{status.label}</Badge>
             <span className="text-sm text-muted">Reference {booking.reference}</span>
           </div>
-          <h1 className="font-display mt-3 text-4xl font-semibold">{retreat.title}</h1>
+          <h1 className="font-display mt-3 text-4xl">{retreat.title}</h1>
           <p className="mt-2 flex items-center gap-1.5 text-ink-2">
             <MapPin className="size-4 text-gold" /> {retreat.location}, {retreat.country}
           </p>

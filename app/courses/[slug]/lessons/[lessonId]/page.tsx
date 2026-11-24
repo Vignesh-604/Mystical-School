@@ -88,7 +88,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         <p className="text-sm text-muted">
           {moduleOf?.title} · Lesson {index + 1} of {lessons.length} · {lesson.durationMin} min
         </p>
-        <h1 className="font-display mt-2 text-5xl font-semibold leading-[1.05]">{lesson.title}</h1>
+        <h1 className="font-display mt-2 text-5xl leading-[1.05]">{lesson.title}</h1>
         {!enrolled ? (
           <p className="mt-3">
             <Badge tone="gold">Free preview lesson</Badge>

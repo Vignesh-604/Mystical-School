@@ -1,9 +1,9 @@
 import { MapPin } from "lucide-react";
 import Link from "next/link";
+import { Reveal } from "./motion";
 import { dateRange, money, nights } from "@/lib/format";
 import type { RetreatListItem } from "@/lib/retreats";
-import { CoverArt } from "./geometry";
-import { Badge } from "./ui";
+import { CoverArt, retreatPhoto } from "./geometry";
 
 export function availabilityLabel(remaining: number, capacity: number) {
   if (remaining <= 0) return { label: "Fully booked", tone: "rose" as const };
@@ -11,35 +11,30 @@ export function availabilityLabel(remaining: number, capacity: number) {
   return { label: "Places available", tone: "sage" as const };
 }
 
-export function RetreatCard({ retreat }: { retreat: RetreatListItem }) {
+export function RetreatCard({ retreat, index = 0 }: { retreat: RetreatListItem; index?: number }) {
   const avail = availabilityLabel(retreat.remaining, retreat.capacity);
   return (
-    <Link
-      href={`/retreats/${retreat.slug}`}
-      className="group grid overflow-hidden rounded-2xl border border-line bg-surface shadow-soft transition-transform hover:-translate-y-0.5 sm:grid-cols-[0.9fr_1.1fr]"
-    >
-      <CoverArt area={retreat.studyArea} seed={retreat.slug} className="aspect-[16/10] sm:aspect-auto sm:min-h-64">
-        <div className="flex h-full flex-col justify-end p-5">
-          <p className="font-display text-3xl font-semibold leading-none text-white/95">{retreat.country}</p>
+    <Reveal delay={(index % 2) * 130} variant="scale">
+    <Link href={`/retreats/${retreat.slug}`} className="lift group block overflow-hidden rounded-[1.6rem] shadow-soft">
+      <CoverArt area={retreat.studyArea} seed={retreat.slug} photo={retreatPhoto(retreat.slug)} label={false} className="aspect-[4/5] sm:aspect-[5/4]">
+        <div className="flex h-full flex-col justify-between p-6 text-[#fbf6ea] sm:p-8">
+          <div className="flex items-start justify-between gap-3">
+            <span className="glass rounded-full px-3 py-1 text-xs font-medium">{avail.label}</span>
+            <span className="glass rounded-full px-3 py-1 text-xs font-medium">From {money(retreat.fromCents, retreat.currency)}</span>
+          </div>
+          <div>
+            <p className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[#e8c88a]">
+              <MapPin className="size-3.5" /> {retreat.location}, {retreat.country}
+            </p>
+            <h3 className="font-display mt-3 text-[2.4rem] leading-[1.02] sm:text-5xl">{retreat.title}</h3>
+            <p className="mt-3 max-w-md text-[0.97rem] leading-relaxed text-[#f3ecdc]/80">{retreat.summary}</p>
+            <p className="mt-4 text-sm text-[#f3ecdc]/75">
+              {dateRange(retreat.startDate, retreat.endDate)} · {nights(retreat.startDate, retreat.endDate)} nights
+            </p>
+          </div>
         </div>
       </CoverArt>
-      <div className="flex flex-col p-6">
-        <div className="flex items-center gap-2">
-          <Badge tone={avail.tone}>{avail.label}</Badge>
-        </div>
-        <h3 className="font-display mt-3 text-[1.75rem] font-semibold leading-tight text-ink">{retreat.title}</h3>
-        <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{retreat.summary}</p>
-        <div className="mt-auto space-y-1 pt-5 text-sm">
-          <p className="flex items-center gap-1.5 text-ink-2">
-            <MapPin className="size-4 text-gold" />
-            {retreat.location}
-          </p>
-          <p className="text-muted">
-            {dateRange(retreat.startDate, retreat.endDate)} · {nights(retreat.startDate, retreat.endDate)} nights
-          </p>
-          <p className="pt-1 font-medium text-ink">From {money(retreat.fromCents, retreat.currency)}</p>
-        </div>
-      </div>
     </Link>
+    </Reveal>
   );
 }
